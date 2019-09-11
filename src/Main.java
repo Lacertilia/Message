@@ -28,11 +28,11 @@ public class Main {
                     break;
                 case "4":
                     saveMessages();
-                    System.out.println("Meddelanden sparades.");
+                    System.out.println("Meddelanden sparades till fil.");
                     break;
                 case "5":
                     readMessages();
-                    System.out.println("Meddelanden inlästa");
+                    System.out.println("Meddelanden inlästa från fil.");
                     break;
                 case "6":
                     System.out.println("See you next time.");
