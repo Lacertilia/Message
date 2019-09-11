@@ -30,5 +30,6 @@ public class Message {
             System.out.println("Your message is too long! Max. 140 characters");
         }
         this.updatedAt = new Date();
+        this.author = System.getProperty("user.name");
     }
 }
