@@ -20,7 +20,11 @@ public class Message {
 
 
     public String toString(){
-        return this.message + " - " + this.author + ", at " + this.createdAt;
+        if(this.updatedAt == null){
+            return this.message + " - " + this.author + ", at " + this.createdAt;
+        }else{
+            return this.message + " - " + this.author + ", updated at " + this.updatedAt;
+        }
     }
 
     public void update(String message){
