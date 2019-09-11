@@ -16,4 +16,9 @@ public class Message {
         this.createdAt = new Date();
         this.author = System.getProperty("user.name");
     }
+
+
+    public String toString(){
+        return this.message + " - " + this.author + ", at " + this.createdAt;
+    }
 }
