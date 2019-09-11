@@ -36,4 +36,8 @@ public class Message {
         this.updatedAt = new Date();
         this.author = System.getProperty("user.name");
     }
+
+    public void save(){
+
+    }
 }
