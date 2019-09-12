@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    private static boolean filesRead = false;
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String in;
@@ -18,13 +20,14 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("Skriv ditt meddelande.");
-                    messages.add(new Message(scan.next()));
+                    messages.add(new Message(getMessage()));
                     break;
                 case "3":
+                    messages.addAll(readMessages());
                     System.out.println("Vilket meddelande vill du uppdatera?");
                     int update = scan.nextInt();
                     System.out.println("Skriv ditt nya meddelande.");
-                    messages.get((update - 1)).update(scan.next());
+                    messages.get((update - 1)).update(getMessage());
                     System.out.println("Uppdateraderingen gick som den skulle");
                     break;
                 case "4":
@@ -84,22 +87,34 @@ public class Main {
      */
 
     private static ArrayList<Message> readMessages() {
-        ArrayList<Message> messages = new ArrayList<Message>();
+        if(!filesRead){
+            ArrayList<Message> messages = new ArrayList<Message>();
 
-        try {
-            FileInputStream fi = new FileInputStream("messages.txt");
-            ObjectInputStream oi = new ObjectInputStream(fi);
+            try {
+                FileInputStream fi = new FileInputStream("messages.txt");
+                ObjectInputStream oi = new ObjectInputStream(fi);
 
-            messages = (ArrayList<Message>) oi.readObject();
+                messages = (ArrayList<Message>) oi.readObject();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            filesRead = true;
+
+            return messages;
+        }else{
+            return null;
         }
+    }
 
-        return messages;
+    private static String getMessage(){
+        Scanner sc = new Scanner(System.in);
+        String msg = sc.nextLine();
+        return msg;
     }
 }
