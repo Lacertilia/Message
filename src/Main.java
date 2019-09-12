@@ -112,6 +112,11 @@ public class Main {
         }
     }
 
+    /**
+     * Scanner for input message, needed to read whole line.
+     * @return the message written
+     */
+
     private static String getMessage(){
         Scanner sc = new Scanner(System.in);
         String msg = sc.nextLine();
