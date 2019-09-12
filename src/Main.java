@@ -108,7 +108,7 @@ public class Main {
 
             return messages;
         }else{
-            return null;
+            return new ArrayList<Message>();
         }
     }
 
