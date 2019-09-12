@@ -46,6 +46,11 @@ public class Main {
                 case "6":
                     System.out.println("See you next time.");
                     System.exit(3);
+                    break;
+                case "Delete":
+                    messages.addAll(readMessages());
+                    messages.clear();
+                    saveMessages(messages);
                 default:
                     System.out.println("Vänligen skriv en siffra mellan 1-6");
             }
