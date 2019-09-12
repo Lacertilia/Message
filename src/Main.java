@@ -32,7 +32,7 @@ public class Main {
                     System.out.println("Meddelanden sparades till fil.");
                     break;
                 case "5":
-                    readMessages();
+                    messages.addAll(readMessages());
                     System.out.println("Meddelanden inlästa från fil.");
                     break;
                 case "6":
@@ -55,10 +55,10 @@ public class Main {
 
     private static void saveMessages(ArrayList<Message> messages){
         try {
-            FileOutputStream f = new FileOutputStream(new File("messages.txt"));
-            ObjectOutputStream o = new ObjectOutputStream(f);
+            FileOutputStream fo = new FileOutputStream(new File("messages.txt"));
+            ObjectOutputStream oo = new ObjectOutputStream(fo);
 
-            o.writeObject(messages);
+            oo.writeObject(messages);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -67,7 +67,23 @@ public class Main {
 
     }
 
-    private static void readMessages(){
+    private static ArrayList<Message> readMessages(){
+        ArrayList<Message> messages = new ArrayList<Message>();
 
+        try {
+            FileInputStream fi = new FileInputStream("messages.txt");
+            ObjectInputStream oi = new ObjectInputStream(fi);
+
+            messages = (ArrayList<Message>) oi.readObject();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return messages;
     }
 }
