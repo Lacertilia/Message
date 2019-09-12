@@ -9,7 +9,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         String in;
         ArrayList<Message> messages = new ArrayList<Message>();
-        while(true) {
+        while (true) {
             menu();
             in = scan.next();
             switch (in) {
@@ -24,7 +24,7 @@ public class Main {
                     System.out.println("Vilket meddelande vill du uppdatera?");
                     int update = scan.nextInt();
                     System.out.println("Skriv ditt nya meddelande.");
-                    messages.get((update-1)).update(scan.next());
+                    messages.get((update - 1)).update(scan.next());
                     System.out.println("Uppdateraderingen gick som den skulle");
                     break;
                 case "4":
@@ -44,7 +44,7 @@ public class Main {
         }
     }
 
-    private static void menu(){
+    private static void menu() {
         System.out.println("1.Visa meddelanden \n" +
                 "2.Lägg till meddelande \n" +
                 "3.Uppdatera meddelande \n" +
@@ -53,7 +53,7 @@ public class Main {
                 "6.Avsluta ");
     }
 
-    private static void saveMessages(ArrayList<Message> messages){
+    private static void saveMessages(ArrayList<Message> messages) {
         try {
             FileOutputStream fo = new FileOutputStream(new File("messages.txt"));
             ObjectOutputStream oo = new ObjectOutputStream(fo);
@@ -67,7 +67,7 @@ public class Main {
 
     }
 
-    private static ArrayList<Message> readMessages(){
+    private static ArrayList<Message> readMessages() {
         ArrayList<Message> messages = new ArrayList<Message>();
 
         try {
