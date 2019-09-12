@@ -55,6 +55,8 @@ public class Main {
 
     private static void saveMessages(ArrayList<Message> messages) {
         try {
+
+            messages.addAll(readMessages());
             FileOutputStream fo = new FileOutputStream(new File("messages.txt"));
             ObjectOutputStream oo = new ObjectOutputStream(fo);
 
