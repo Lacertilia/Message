@@ -44,6 +44,10 @@ public class Main {
         }
     }
 
+    /**
+     * Prints out the menu for options.
+     */
+
     private static void menu() {
         System.out.println("1.Visa meddelanden \n" +
                 "2.Lägg till meddelande \n" +
@@ -52,6 +56,11 @@ public class Main {
                 "5.Läs in meddelande från fil \n" +
                 "6.Avsluta ");
     }
+
+    /**
+     * A function to save messages to a file in order to read them later
+     * @param messages The messages that will be saved
+     */
 
     private static void saveMessages(ArrayList<Message> messages) {
         try {
@@ -68,6 +77,11 @@ public class Main {
         }
 
     }
+
+    /**
+     * A function to read messages from a file
+     * @return the messages from a txt file.
+     */
 
     private static ArrayList<Message> readMessages() {
         ArrayList<Message> messages = new ArrayList<Message>();
