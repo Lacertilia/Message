@@ -14,12 +14,12 @@ public class Message implements java.io.Serializable{
     public Message(String message){
         if(message.length() <= 140){
             this.message = message;
+            this.createdAt = new Date();
+            this.author = System.getProperty("user.name");
         }else{
             System.out.println("Your message is too long! Max. 140 characters");
             System.exit(2);
         }
-        this.createdAt = new Date();
-        this.author = System.getProperty("user.name");
     }
 
     /**
@@ -42,10 +42,10 @@ public class Message implements java.io.Serializable{
     public void update(String message){
         if(message.length() <= 140){
             this.message = message;
+            this.updatedAt = new Date();
+            this.author = System.getProperty("user.name");
         }else{
             System.out.println("Your message is too long! Max. 140 characters");
         }
-        this.updatedAt = new Date();
-        this.author = System.getProperty("user.name");
     }
 }
