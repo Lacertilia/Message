@@ -7,6 +7,10 @@ public class Message implements java.io.Serializable{
     private String message;
     private String author;
 
+    /**
+     * Constructor for message, max-length is 140 characters and the Constructor automatically gets the author and time that the message was written.
+     * @param message
+     */
     public Message(String message){
         if(message.length() <= 140){
             this.message = message;
@@ -18,7 +22,10 @@ public class Message implements java.io.Serializable{
         this.author = System.getProperty("user.name");
     }
 
-
+    /**
+     *  A function to return a wiewable message
+     * @return the message, however it is different if the message is updated.
+     */
     public String toString(){
         if(this.updatedAt == null){
             return this.message + " - " + this.author + ", at " + this.createdAt;
@@ -26,6 +33,11 @@ public class Message implements java.io.Serializable{
             return this.message + " - " + this.author + ", updated at " + this.updatedAt;
         }
     }
+
+    /**
+     * A function to update messages.
+     * @param message
+     */
 
     public void update(String message){
         if(message.length() <= 140){
