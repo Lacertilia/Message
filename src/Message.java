@@ -1,7 +1,7 @@
 import java.sql.SQLOutput;
 import java.util.*;
 
-public class Message {
+public class Message implements java.io.Serializable{
     private Date createdAt;
     private Date updatedAt;
     private String message;
@@ -35,9 +35,5 @@ public class Message {
         }
         this.updatedAt = new Date();
         this.author = System.getProperty("user.name");
-    }
-
-    public void save(){
-
     }
 }

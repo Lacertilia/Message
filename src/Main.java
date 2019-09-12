@@ -1,5 +1,6 @@
 import org.w3c.dom.ls.LSOutput;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class Main {
                     System.out.println("Uppdateraderingen gick som den skulle");
                     break;
                 case "4":
-                    saveMessages();
+                    saveMessages(messages);
                     System.out.println("Meddelanden sparades till fil.");
                     break;
                 case "5":
@@ -52,7 +53,17 @@ public class Main {
                 "6.Avsluta ");
     }
 
-    private static void saveMessages(){
+    private static void saveMessages(ArrayList<Message> messages){
+        try {
+            FileOutputStream f = new FileOutputStream(new File("messages.txt"));
+            ObjectOutputStream o = new ObjectOutputStream(f);
+
+            o.writeObject(messages);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
