@@ -7,6 +7,11 @@ import java.util.Scanner;
 public class Main {
     private static boolean filesRead = false;
 
+    /**
+     * Starts the program
+     * @param args
+     */
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String in;
